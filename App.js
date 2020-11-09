@@ -1,6 +1,9 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Provider as ReduxProvider} from 'react-redux';
+import {mapping, light as lightTheme} from '@eva-design/eva';
+import {ApplicationProvider, IconRegistry, Icon} from 'react-native-ui-kitten';
+import {EvaIconsPack} from '@ui-kitten/eva-icons';
 
 import SplashScreen from './src/features/SplashScreen';
 import {store} from './src/store';
@@ -42,17 +45,22 @@ export default class App extends React.Component {
   );
 
   renderApp = () => (
-    <ReduxProvider store={store}>
-      <NavigatorProvider
-        style={styles.flex}
-        ref={(nav) => {
-          this.navigator = nav;
-        }}>
-        <View style={[styles.flex]}>
-          <SplashScreen />
-        </View>
-      </NavigatorProvider>
-    </ReduxProvider>
+    <>
+      <IconRegistry icons={EvaIconsPack} />
+      <ApplicationProvider mapping={mapping} theme={lightTheme}>
+        <ReduxProvider store={store}>
+          <NavigatorProvider
+            style={styles.flex}
+            ref={nav => {
+              this.navigator = nav;
+            }}>
+            <View style={[styles.flex]}>
+              <SplashScreen />
+            </View>
+          </NavigatorProvider>
+        </ReduxProvider>
+      </ApplicationProvider>
+    </>
   );
 
   render = () =>

@@ -83,7 +83,7 @@ class SignIn extends Component {
     const {errors} = this.props;
 
     return (
-      <Layout style={styles.screen}>
+      <Layout style={styles.screen} accessible={true}>
         {this.renderImage()}
         <View style={styles.buttons}>
           <TouchableOpacity style={styles.button}>
@@ -123,7 +123,12 @@ class SignIn extends Component {
           Forgot password?
         </Text>
 
-        <Button style={styles.actionButon} onPress={this.submitLogin}>
+        <Button
+          style={styles.actionButon}
+          onPress={this.submitLogin}
+          accessible={true}
+          accessibilityLabel="Login"
+          accessibilityHint="Navigates to the home screenSi">
           LOGIN
         </Button>
 
@@ -139,7 +144,7 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = state => ({
-  signInErrors: state.EmailAuth.errors.SignIn,
+  // signInErrors: state.EmailAuth.errors.SignIn,
 });
 
 const mapDispatchToProps = dispatch => ({

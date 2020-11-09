@@ -86,7 +86,7 @@ class PasswordRecover extends Component {
 }
 
 const mapStateToProps = state => ({
-  recoverPasswordErrors: state.EmailAuth.errors.PasswordRecover,
+  // recoverPasswordErrors: state.EmailAuth.errors.PasswordRecover,
 });
 
 const mapDispatchToProps = dispatch => ({

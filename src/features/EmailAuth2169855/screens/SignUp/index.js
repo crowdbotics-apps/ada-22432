@@ -103,7 +103,7 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = state => ({
-  signUpErrors: state.EmailAuth.errors.SignUp,
+  // signUpErrors: state.EmailAuth.errors.SignUp,
 });
 
 const mapDispatchToProps = dispatch => ({
